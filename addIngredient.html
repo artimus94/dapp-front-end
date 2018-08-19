@@ -5,36 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Explorer</title>
-    
+
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <!-- Image and text -->
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Get Product</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="getIngredient.html">Get Ingredients</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="addProduct.html">Add Product</a>
+      <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Get Product</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="addIngredient.html">Add Ingredients</a>
+            <a class="nav-link" href="getIngredient.html">Get Ingredients</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="productIngrdient.html">Product Ingredients</a>
+              <a class="nav-link" href="addProduct.html">Add Product</a>
             </li>
-      </ul>
-        
+            <li class="nav-item">
+                <a class="nav-link" href="addIngredient.html">Add Ingredients</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="productIngrdient.html">Product Ingredients</a>
+                </li>
+        </ul>
     <div class="container" style="width: 650px;">
-
       <!-- TODO -->
       <div class="row">
         <div class="col-lg-12">
-          <center><img src="img/n.png"  alt="Magnify"  width="100" height="100"></center>
+          <center><img src="img/gi.png"  alt="Magnify"  width="100" height="100"></center>
           <h1 class="text-center">Product Transparency Explorer</h1>
           <hr/>
           <br/>
@@ -49,21 +46,28 @@
       </div>
       <!-- end TODO -->
 
-
+      <hr>
       <div class="row">
-        <h3>Get Product</h3>
+        <h3>Add Ingredient</h3>
         <form action="#">
-            <div class="form-group">
+          <div class="form-group">
+            <label for="">Ingredient Address</label>
+            <input class="form-control" type="text" id="ingredientAdress">
+          </div>
+          <div class="form-group">
               <label for="">Product Address</label>
-              <input class="form-control" type="text" id="getProductAdress">
-            </div>
-            <button class="btn btn-primary" id="getProductSubmit">Submit</button>
-          </form>
+              <input class="form-control" type="text" id="productAdress">
+          </div>
+          <div class="form-group">
+              <label for="">Ingredient Name</label>
+              <input class="form-control" type="text" id="ingredientName">
+          </div>
+          <button class="btn btn-primary" id="submitAddIngredient">Submit</button>
+        </form>
       </div>
-    <hr>
+      <hr>
 
-</div>
-
+  </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

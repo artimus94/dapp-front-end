@@ -81,6 +81,55 @@ App = {
           sK.val("")
         })
       })
+      
+      $("#submitAddIngredient").click(function(){
+        var iA = $("#ingredientAdress")
+        var pA = $("#productAdress")
+        var iN = $("#ingredientName")
+        
+        App.contracts.Explorer.deployed().then(function(instance) {
+          explorerInstance = instance;
+          return explorerInstance.addIngredient(iA.val(), pA.val(), iN.val())
+        })
+        .then(function(tx_hashIngredient_that_i_promised_you){
+          alert("Transaction sent. TxHash: " + tx_hashIngredient_that_i_promised_you.tx)
+          
+          // Resetting the form inputs
+          iA.val("")
+          pA.val("")
+          iN.val("")
+        })
+      })
+
+      // $("#getIngredientSubmit").click(function(){
+      //   var pA = $("#getProductAdress")
+      //   var iL = $("#getIngredientLength")
+
+      //   App.contracts.Explorer.deployed().then(function(instance) {
+      //     console.log("Am I get called?")
+      //     explorerInstance = instance;
+      //     for (iL = 0; iL < iL.length; i++) { 
+      //       text += cars[i] + "<br>";
+      //   }
+      //     return explorerInstance.Products.call(pA.val())
+      //   })
+      //   .then(function(product_that_i_promised_you){
+      //     alert(product_that_i_promised_you)
+      //   })
+      // })
+      $("#getIngredientSubmit").click(function(){
+        console.log("Yo!");
+        var pA = $("#getIngredientAdress")
+
+        App.contracts.Explorer.deployed().then(function(instance) {
+          console.log("Am I get called?")
+          explorerInstance = instance;
+          return explorerInstance.ingredients.call(pA.val())
+        })
+        .then(function(ingredient_that_i_promised_you){
+          alert("Ingredient: " + ingredient_that_i_promised_you)
+        })
+      })
 
       $("#getProductSubmit").click(function(){
         console.log("Yo!");
@@ -89,12 +138,40 @@ App = {
         App.contracts.Explorer.deployed().then(function(instance) {
           console.log("Am I get called?")
           explorerInstance = instance;
-          return explorerInstance.Products.call(sA.val())
+          
+          return explorerInstance.products.call(sA.val())
         })
         .then(function(product_that_i_promised_you){
-          console.log(product_that_i_promised_you)
+          alert("Product, Company: " + product_that_i_promised_you)
         })
       })
+
+      $("#getProductIngredientSubmit").click(function(){
+        console.log("Yo!");
+        var pIA = $("#getProductIngredientAdress")
+
+        App.contracts.Explorer.deployed().then(function(instance) {
+          console.log("Am I get called?")
+          explorerInstance = instance;
+          
+          var iL =  explorerInstance.getIngredientLength(pIA.val())
+
+          // for (var i = 0; i < iL; i++) {
+          //   return explorerInstance.getIngredient(pIA.val(), i)
+          // }
+          do {
+            return explorerInstance.getIngredient(pIA.val(), iL - 1)
+            --iL;
+        }
+        while (iL > 0);
+        })
+        .then(function(product_that_i_promised_you){
+          //alert(product_that_i_promised_you)
+          alert("Ingredient Address: " + product_that_i_promised_you)
+        })
+      })
+
+
     }
   };
   
