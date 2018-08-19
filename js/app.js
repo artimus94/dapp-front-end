@@ -101,22 +101,6 @@ App = {
         })
       })
 
-      // $("#getIngredientSubmit").click(function(){
-      //   var pA = $("#getProductAdress")
-      //   var iL = $("#getIngredientLength")
-
-      //   App.contracts.Explorer.deployed().then(function(instance) {
-      //     console.log("Am I get called?")
-      //     explorerInstance = instance;
-      //     for (iL = 0; iL < iL.length; i++) { 
-      //       text += cars[i] + "<br>";
-      //   }
-      //     return explorerInstance.Products.call(pA.val())
-      //   })
-      //   .then(function(product_that_i_promised_you){
-      //     alert(product_that_i_promised_you)
-      //   })
-      // })
       $("#getIngredientSubmit").click(function(){
         console.log("Yo!");
         var pA = $("#getIngredientAdress")
@@ -143,6 +127,7 @@ App = {
         })
         .then(function(product_that_i_promised_you){
           alert("Product, Company: " + product_that_i_promised_you)
+          
         })
       })
 
